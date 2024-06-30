@@ -10,7 +10,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { LogOut, Bookmark, UserRound } from 'lucide-react'
+import { Bookmark, UserRound } from 'lucide-react'
+import { SignOut } from './sign-out'
 
 export function UserNav() {
   return (
@@ -53,10 +54,7 @@ export function UserNav() {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Sair da conta</span>
-        </DropdownMenuItem>
+        <SignOut />
       </DropdownMenuContent>
     </DropdownMenu>
   )
