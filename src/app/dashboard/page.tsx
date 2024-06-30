@@ -6,7 +6,7 @@ import { Search } from './components/search'
 export default function Dashboard() {
   return (
     <>
-      <header className="border-b py-5">
+      <header className="border-b py-4">
         <div className="max-w-5xl mx-auto px-4 flex items-center justify-between">
           <Logo />
 
