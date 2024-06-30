@@ -1,4 +1,4 @@
-import { TbMessage2Code } from 'react-icons/tb'
+import { TbWorldCode } from 'react-icons/tb'
 import { SignInButton } from './components/sign-in-button'
 
 export default function SignIn() {
@@ -6,7 +6,7 @@ export default function SignIn() {
     <main className="h-screen flex items-center justify-center">
       <div className="flex flex-col text-center">
         <div className="self-center mb-4">
-          <TbMessage2Code size={48} />
+          <TbWorldCode size={48} />
         </div>
 
         <h1 className="text-2xl font-semibold tracking-tight">

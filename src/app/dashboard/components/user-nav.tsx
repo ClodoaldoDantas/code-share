@@ -10,6 +10,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+import { LogOut, Bookmark, UserRound } from 'lucide-react'
+
 export function UserNav() {
   return (
     <DropdownMenu>
@@ -20,7 +22,7 @@ export function UserNav() {
               src="https://github.com/clodoaldodantas.png"
               alt="Clodoaldo Dantas"
             />
-            <AvatarFallback>SC</AvatarFallback>
+            <AvatarFallback>CD</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
@@ -38,13 +40,23 @@ export function UserNav() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem>Meu Perfil</DropdownMenuItem>
-          <DropdownMenuItem>Salvos</DropdownMenuItem>
+          <DropdownMenuItem>
+            <UserRound className="mr-2 h-4 w-4" />
+            <span>Meu Perfil</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem>
+            <Bookmark className="mr-2 h-4 w-4" />
+            <span>Salvos</span>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem>Log out</DropdownMenuItem>
+        <DropdownMenuItem>
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Sair da conta</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
