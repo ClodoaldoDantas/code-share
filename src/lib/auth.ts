@@ -1,14 +1,10 @@
 import { AuthOptions } from 'next-auth'
-import GitHubProvider from 'next-auth/providers/github'
-
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import { PrismaClient } from '@prisma/client'
-import { Adapter } from 'next-auth/adapters'
-
-const prisma = new PrismaClient()
+import GitHubProvider from 'next-auth/providers/github'
+import prisma from './prisma'
 
 export const authOptions: AuthOptions = {
-  adapter: PrismaAdapter(prisma) as Adapter,
+  adapter: PrismaAdapter(prisma) as any,
   session: {
     strategy: 'jwt',
   },
