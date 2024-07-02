@@ -1,5 +1,5 @@
 import { TbWorldCode } from 'react-icons/tb'
-import { SignInButton } from './components/sign-in-button'
+import { SignInButton } from '@/components/sign-in-button'
 
 export default function SignIn() {
   return (

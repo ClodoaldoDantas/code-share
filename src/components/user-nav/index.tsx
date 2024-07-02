@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import { Bookmark, UserRound } from 'lucide-react'
-import { SignOut } from './sign-out'
+import { SignOutButton } from '../sign-out-button'
 import { UserAvatar } from './user-avatar'
 import { UserInfo } from './user-info'
 
@@ -44,7 +44,7 @@ export function UserNav() {
 
         <DropdownMenuSeparator />
 
-        <SignOut />
+        <SignOutButton />
       </DropdownMenuContent>
     </DropdownMenu>
   )
