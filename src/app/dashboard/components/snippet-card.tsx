@@ -1,12 +1,13 @@
-import { CircleIcon, ImageIcon, LinkIcon, StarIcon } from 'lucide-react'
+import { HeartIcon, LinkIcon } from 'lucide-react'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from './ui/card'
-import { Button } from './ui/button'
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Technology } from '@/components/technology'
 
 export function SnippetCard() {
   return (
@@ -20,22 +21,19 @@ export function SnippetCard() {
 
       <CardContent>
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <CircleIcon className="mr-1 h-3 w-3 fill-blue-500 text-blue-500" />
-            <span className="text-sm text-muted-foreground">React</span>
-          </div>
+          <Technology />
 
-          <div>
-            <Button aria-label="Acessar link" size="icon" variant="ghost">
-              <LinkIcon size={18} />
-            </Button>
-
+          <div className="text-muted-foreground">
             <Button
+              aria-label="Salvar como favorito"
               size="icon"
               variant="ghost"
-              aria-label="Ver preview do código"
             >
-              <ImageIcon size={18} />
+              <HeartIcon size={18} />
+            </Button>
+
+            <Button aria-label="Acessar link" size="icon" variant="ghost">
+              <LinkIcon size={18} />
             </Button>
           </div>
         </div>

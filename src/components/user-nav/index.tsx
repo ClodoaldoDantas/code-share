@@ -3,16 +3,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { Bookmark, UserRound } from 'lucide-react'
 import { SignOutButton } from '../sign-out-button'
 import { UserAvatar } from './user-avatar'
 import { UserInfo } from './user-info'
+import { UserLinks } from './user-links'
 
 export function UserNav() {
   return (
@@ -31,15 +30,7 @@ export function UserNav() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <UserRound className="mr-2 h-4 w-4" />
-            <span>Meu Perfil</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <Bookmark className="mr-2 h-4 w-4" />
-            <span>Salvos</span>
-          </DropdownMenuItem>
+          <UserLinks />
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
