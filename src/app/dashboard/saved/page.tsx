@@ -1,7 +1,7 @@
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { Button } from '@/components/ui/button'
-import { LinkIcon, XCircleIcon, XIcon } from 'lucide-react'
+import { LinkIcon, XCircleIcon } from 'lucide-react'
 
 export default function DashboardSavedPage() {
   return (
@@ -19,7 +19,7 @@ export default function DashboardSavedPage() {
 
               <SnippetCard.Actions>
                 <Button
-                  aria-label="Salvar como favorito"
+                  aria-label="Remover dos favoritos"
                   size="icon"
                   variant="ghost"
                 >
