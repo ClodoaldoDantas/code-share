@@ -31,14 +31,6 @@ export async function POST(request: Request) {
 
     const { data } = body
 
-    console.log({
-      title: data.title,
-      description: data.description,
-      technology: data.technology,
-      link: data.link,
-      userId: session.user.id,
-    })
-
     const result = await prisma.snippet.create({
       data: {
         title: data.title,
