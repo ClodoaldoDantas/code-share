@@ -1,3 +1,4 @@
+import { CreateSnippetModal } from '@/components/create-snippet-modal'
 import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
@@ -7,6 +8,10 @@ import { HeartIcon } from 'lucide-react'
 export default function DashboardPage() {
   return (
     <main className="max-w-5xl mx-auto px-4 my-5">
+      <header className="flex items-center justify-end mb-5">
+        <CreateSnippetModal />
+      </header>
+
       <div className="grid grid-cols-3 gap-4">
         {Array.from({ length: 6 }).map((_, index) => (
           <SnippetCard.Root key={index}>
