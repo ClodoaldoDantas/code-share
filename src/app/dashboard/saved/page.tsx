@@ -1,7 +1,8 @@
+import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { Button } from '@/components/ui/button'
-import { LinkIcon, XCircleIcon } from 'lucide-react'
+import { XCircleIcon } from 'lucide-react'
 
 export default function DashboardSavedPage() {
   return (
@@ -26,9 +27,7 @@ export default function DashboardSavedPage() {
                   <XCircleIcon size={18} />
                 </Button>
 
-                <Button aria-label="Acessar link" size="icon" variant="ghost">
-                  <LinkIcon size={18} />
-                </Button>
+                <OpenLinkButton />
               </SnippetCard.Actions>
             </SnippetCard.Content>
           </SnippetCard.Root>

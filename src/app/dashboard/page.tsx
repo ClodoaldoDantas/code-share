@@ -1,7 +1,8 @@
+import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { Button } from '@/components/ui/button'
-import { HeartIcon, LinkIcon } from 'lucide-react'
+import { HeartIcon } from 'lucide-react'
 
 export default function DashboardPage() {
   return (
@@ -26,9 +27,7 @@ export default function DashboardPage() {
                   <HeartIcon size={18} />
                 </Button>
 
-                <Button aria-label="Acessar link" size="icon" variant="ghost">
-                  <LinkIcon size={18} />
-                </Button>
+                <OpenLinkButton />
               </SnippetCard.Actions>
             </SnippetCard.Content>
           </SnippetCard.Root>
