@@ -1,6 +1,6 @@
 'use client'
 
-import { technologies } from '@/utils/technologies'
+import { technologies } from '@/data/technologies'
 import { Button } from './ui/button'
 import { DialogFooter } from './ui/dialog'
 import { Input } from './ui/input'
@@ -17,6 +17,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2Icon } from 'lucide-react'
 import { useToast } from './ui/use-toast'
+import { useRouter } from 'next/navigation'
 
 const createSnippetSchema = z.object({
   title: z.string().min(1, 'Título é obrigatório'),
@@ -28,6 +29,7 @@ const createSnippetSchema = z.object({
 type CreateSnippetData = z.infer<typeof createSnippetSchema>
 
 export function CreateSnippetForm() {
+  const router = useRouter()
   const { toast } = useToast()
 
   const {
@@ -35,7 +37,7 @@ export function CreateSnippetForm() {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting },
+    formState: { isSubmitting, errors },
   } = useForm<CreateSnippetData>({
     resolver: zodResolver(createSnippetSchema),
     values: {
@@ -58,6 +60,8 @@ export function CreateSnippetForm() {
 
       toast({ title: 'Snippet criado com sucesso' })
       reset()
+
+      router.refresh()
     } catch (err) {
       toast({ title: 'Erro ao criar snippet', variant: 'destructive' })
       console.error(err)
@@ -69,11 +73,19 @@ export function CreateSnippetForm() {
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="title">Título</Label>
         <Input id="title" type="text" {...register('title')} />
+
+        {errors.title && (
+          <p className="text-red-600 text-xs">{errors.title.message}</p>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="description">Descrição</Label>
         <Input id="description" type="text" {...register('description')} />
+
+        {errors.description && (
+          <p className="text-red-600 text-xs">{errors.description.message}</p>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
@@ -97,11 +109,19 @@ export function CreateSnippetForm() {
             </Select>
           )}
         />
+
+        {errors.technology && (
+          <p className="text-red-600 text-xs">{errors.technology.message}</p>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="link">Link</Label>
         <Input id="link" type="text" {...register('link')} />
+
+        {errors.link && (
+          <p className="text-red-600 text-xs">{errors.link.message}</p>
+        )}
       </div>
 
       <DialogFooter>

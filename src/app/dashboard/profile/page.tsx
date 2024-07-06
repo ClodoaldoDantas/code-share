@@ -1,21 +1,24 @@
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { Button } from '@/components/ui/button'
+import { getUserSnippets } from '@/utils/get-user-snippets'
 import { PenIcon, TrashIcon } from 'lucide-react'
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const snippets = await getUserSnippets()
+
   return (
     <main className="max-w-5xl mx-auto px-4 my-5">
       <div className="grid grid-cols-3 gap-4">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <SnippetCard.Root key={index}>
+        {snippets.map((snippet) => (
+          <SnippetCard.Root key={snippet.id}>
             <SnippetCard.Heading
-              title="useModal"
-              description="A hook to manage modals in React"
+              title={snippet.title}
+              description={snippet.description}
             />
 
             <SnippetCard.Content>
-              <Technology />
+              <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
                 <Button aria-label="Editar snippet" size="icon" variant="ghost">

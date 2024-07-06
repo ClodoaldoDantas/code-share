@@ -2,7 +2,7 @@ import { CardHeader, CardTitle, CardDescription } from '../ui/card'
 
 type SnippetCardHeadingProps = {
   title: string
-  description: string
+  description: string | null
 }
 
 export function SnippetCardHeading({
@@ -10,9 +10,9 @@ export function SnippetCardHeading({
   description,
 }: SnippetCardHeadingProps) {
   return (
-    <CardHeader>
+    <CardHeader className="min-h-[122px]">
       <CardTitle className="text-lg">{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
+      {description && <CardDescription>{description}</CardDescription>}
     </CardHeader>
   )
 }

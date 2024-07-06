@@ -1,10 +1,13 @@
-import { CircleIcon } from 'lucide-react'
+import { technologies } from '@/data/technologies'
+import { SquareTerminalIcon } from 'lucide-react'
 
-export function Technology() {
+export function Technology({ value }: { value: string }) {
+  const item = technologies.find((item) => item.value === value)
+
   return (
     <div className="flex items-center">
-      <CircleIcon className="mr-1 h-3 w-3 fill-blue-500 text-blue-500" />
-      <span className="text-sm text-muted-foreground">React</span>
+      <SquareTerminalIcon size={18} className="mr-2 text-muted-foreground" />
+      <span className="text-sm text-muted-foreground">{item?.label}</span>
     </div>
   )
 }
