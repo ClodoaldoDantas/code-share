@@ -16,6 +16,7 @@ import { z } from 'zod'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2Icon } from 'lucide-react'
+import { useToast } from './ui/use-toast'
 
 const createSnippetSchema = z.object({
   title: z.string().min(1, 'Título é obrigatório'),
@@ -27,6 +28,8 @@ const createSnippetSchema = z.object({
 type CreateSnippetData = z.infer<typeof createSnippetSchema>
 
 export function CreateSnippetForm() {
+  const { toast } = useToast()
+
   const {
     control,
     register,
@@ -44,10 +47,21 @@ export function CreateSnippetForm() {
   })
 
   async function handleCreateSnippet(data: CreateSnippetData) {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    console.log(data)
+    try {
+      await fetch('/api/snippets', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
 
-    reset()
+      toast({ title: 'Snippet criado com sucesso' })
+      reset()
+    } catch (err) {
+      toast({ title: 'Erro ao criar snippet', variant: 'destructive' })
+      console.error(err)
+    }
   }
 
   return (
