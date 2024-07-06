@@ -8,15 +8,16 @@ generator client {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(uuid())
   name          String?
   email         String    @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
   accounts      Account[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  snippets  Snippet[]
 
   @@map("users")
 }
@@ -41,4 +42,17 @@ model Account {
 
   @@id([provider, providerAccountId])
   @@map("accounts")
+}
+
+model Snippet {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  technology  String
+  gistUrl     String
+
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@map("snippets")
 }
