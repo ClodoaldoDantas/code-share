@@ -49,7 +49,7 @@ model Snippet {
   title       String
   description String?
   technology  String
-  gistUrl     String
+  link        String
 
   userId String @map("user_id")
   user   User   @relation(fields: [userId], references: [id])
