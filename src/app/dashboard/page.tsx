@@ -7,8 +7,6 @@ import { getAllSnippets } from '@/utils/get-all-snippets'
 import { HeartIcon } from 'lucide-react'
 
 export default async function DashboardPage() {
-  throw new Error('Not implemented')
-
   const snippets = await getAllSnippets()
 
   return (
