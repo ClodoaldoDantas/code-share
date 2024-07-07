@@ -21,10 +21,6 @@ export default async function ProfilePage() {
               <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
-                <Button aria-label="Editar snippet" size="icon" variant="ghost">
-                  <PenIcon size={18} />
-                </Button>
-
                 <Button
                   aria-label="Remover snippet"
                   size="icon"

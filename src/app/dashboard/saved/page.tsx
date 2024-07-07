@@ -16,7 +16,7 @@ export default function DashboardSavedPage() {
             />
 
             <SnippetCard.Content>
-              <Technology />
+              <Technology value="react" />
 
               <SnippetCard.Actions>
                 <Button
@@ -27,7 +27,7 @@ export default function DashboardSavedPage() {
                   <XCircleIcon size={18} />
                 </Button>
 
-                <OpenLinkButton />
+                <OpenLinkButton url="https://usehooks-ts.com/react-hook/use-copy-to-clipboard" />
               </SnippetCard.Actions>
             </SnippetCard.Content>
           </SnippetCard.Root>
