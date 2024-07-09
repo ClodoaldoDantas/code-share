@@ -18,6 +18,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2Icon } from 'lucide-react'
 import { useToast } from './ui/use-toast'
 import { useRouter } from 'next/navigation'
+import { ErrorMessage } from './error-message'
 
 const createSnippetSchema = z.object({
   title: z.string().min(1, 'Título é obrigatório'),
@@ -73,19 +74,13 @@ export function CreateSnippetForm() {
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="title">Título</Label>
         <Input id="title" type="text" {...register('title')} />
-
-        {errors.title && (
-          <p className="text-red-600 text-xs">{errors.title.message}</p>
-        )}
+        <ErrorMessage field={errors.title} />
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="description">Descrição</Label>
         <Input id="description" type="text" {...register('description')} />
-
-        {errors.description && (
-          <p className="text-red-600 text-xs">{errors.description.message}</p>
-        )}
+        <ErrorMessage field={errors.description} />
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
@@ -110,18 +105,13 @@ export function CreateSnippetForm() {
           )}
         />
 
-        {errors.technology && (
-          <p className="text-red-600 text-xs">{errors.technology.message}</p>
-        )}
+        <ErrorMessage field={errors.technology} />
       </div>
 
       <div className="flex flex-col gap-2 mb-4">
         <Label htmlFor="link">Link</Label>
         <Input id="link" type="text" {...register('link')} />
-
-        {errors.link && (
-          <p className="text-red-600 text-xs">{errors.link.message}</p>
-        )}
+        <ErrorMessage field={errors.link} />
       </div>
 
       <DialogFooter>
