@@ -1,22 +1,28 @@
+import { EmptyList } from '@/components/empty-list'
 import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { Button } from '@/components/ui/button'
+import { Snippet } from '@/types/snippet'
 import { XCircleIcon } from 'lucide-react'
 
 export default function DashboardSavedPage() {
+  const snippets = [] as Snippet[]
+
   return (
     <main className="max-w-5xl mx-auto px-4 my-5">
+      {snippets.length === 0 && <EmptyList />}
+
       <div className="grid grid-cols-3 gap-4">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <SnippetCard.Root key={index}>
+        {snippets.map((snippet) => (
+          <SnippetCard.Root key={snippet.id}>
             <SnippetCard.Heading
-              title="useClipboard"
-              description="A hook to copy text to the clipboard"
+              title={snippet.title}
+              description={snippet.description}
             />
 
             <SnippetCard.Content>
-              <Technology value="react" />
+              <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
                 <Button
@@ -27,7 +33,7 @@ export default function DashboardSavedPage() {
                   <XCircleIcon size={18} />
                 </Button>
 
-                <OpenLinkButton url="https://usehooks-ts.com/react-hook/use-copy-to-clipboard" />
+                <OpenLinkButton url={snippet.link} />
               </SnippetCard.Actions>
             </SnippetCard.Content>
           </SnippetCard.Root>
