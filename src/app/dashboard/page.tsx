@@ -1,4 +1,5 @@
 import { CreateSnippetModal } from '@/components/create-snippet-modal'
+import { EmptyList } from '@/components/empty-list'
 import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
@@ -14,6 +15,8 @@ export default async function DashboardPage() {
       <header className="flex items-center justify-end mb-5">
         <CreateSnippetModal />
       </header>
+
+      {snippets.length === 0 && <EmptyList />}
 
       <div className="grid grid-cols-3 gap-4">
         {snippets.map((snippet) => (
