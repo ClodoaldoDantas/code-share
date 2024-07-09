@@ -1,8 +1,7 @@
+import { RemoveSnippetButton } from '@/components/remove-snippet-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
-import { Button } from '@/components/ui/button'
 import { getUserSnippets } from '@/utils/get-user-snippets'
-import { PenIcon, TrashIcon } from 'lucide-react'
 
 export default async function ProfilePage() {
   const snippets = await getUserSnippets()
@@ -21,13 +20,7 @@ export default async function ProfilePage() {
               <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
-                <Button
-                  aria-label="Remover snippet"
-                  size="icon"
-                  variant="ghost"
-                >
-                  <TrashIcon size={18} />
-                </Button>
+                <RemoveSnippetButton snippetId={snippet.id} />
               </SnippetCard.Actions>
             </SnippetCard.Content>
           </SnippetCard.Root>
