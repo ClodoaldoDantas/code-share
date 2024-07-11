@@ -23,7 +23,7 @@ export default async function DashboardSearchPage({
   return (
     <main className="max-w-5xl mx-auto px-4 my-5">
       {snippets.length > 0 ? (
-        <p className="text-xl mb-4">
+        <p className="text-base mb-4">
           Resultados para: <span className="font-semibold">{query}</span>
         </p>
       ) : (
