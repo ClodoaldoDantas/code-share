@@ -4,18 +4,23 @@ import { TrashIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { useToast } from './ui/use-toast'
 import { useRouter } from 'next/navigation'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from './ui/alert-dialog'
 
 export function RemoveSnippetButton({ snippetId }: { snippetId: string }) {
   const { toast } = useToast()
   const router = useRouter()
 
   async function handleDeleteSnippet() {
-    const confirm = window.confirm(
-      'Tem certeza que deseja remover este snippet?'
-    )
-
-    if (!confirm) return
-
     try {
       await fetch(`/api/snippets/${snippetId}`, { method: 'DELETE' })
       toast({ title: 'Snippet removido com sucesso' })
@@ -32,13 +37,28 @@ export function RemoveSnippetButton({ snippetId }: { snippetId: string }) {
   }
 
   return (
-    <Button
-      onClick={handleDeleteSnippet}
-      aria-label="Remover snippet"
-      size="icon"
-      variant="ghost"
-    >
-      <TrashIcon size={18} />
-    </Button>
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button aria-label="Remover snippet" size="icon" variant="ghost">
+          <TrashIcon size={18} />
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
+          <AlertDialogDescription>
+            Essa ação não pode ser desfeita. Isso excluirá permanentemente os
+            dados de nossos servidores.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+
+          <AlertDialogAction onClick={handleDeleteSnippet}>
+            Remover
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 }
