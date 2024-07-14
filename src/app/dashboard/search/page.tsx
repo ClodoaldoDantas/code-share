@@ -1,10 +1,9 @@
 import { EmptyList } from '@/components/empty-list'
+import { FavoriteButton } from '@/components/favorite-button'
 import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
-import { Button } from '@/components/ui/button'
 import { searchSnippets } from '@/utils/search-snippets'
-import { HeartIcon } from 'lucide-react'
 import { redirect } from 'next/navigation'
 
 export default async function DashboardSearchPage({
@@ -42,14 +41,7 @@ export default async function DashboardSearchPage({
               <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
-                <Button
-                  aria-label="Salvar como favorito"
-                  size="icon"
-                  variant="ghost"
-                >
-                  <HeartIcon size={18} />
-                </Button>
-
+                <FavoriteButton snippet={snippet} />
                 <OpenLinkButton url={snippet.link} />
               </SnippetCard.Actions>
             </SnippetCard.Content>

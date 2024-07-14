@@ -1,11 +1,10 @@
 import { CreateSnippetModal } from '@/components/create-snippet-modal'
 import { EmptyList } from '@/components/empty-list'
+import { FavoriteButton } from '@/components/favorite-button'
 import { OpenLinkButton } from '@/components/open-link-button'
 import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
-import { Button } from '@/components/ui/button'
 import { getAllSnippets } from '@/utils/get-all-snippets'
-import { HeartIcon } from 'lucide-react'
 
 export default async function DashboardPage() {
   const snippets = await getAllSnippets()
@@ -30,14 +29,7 @@ export default async function DashboardPage() {
               <Technology value={snippet.technology} />
 
               <SnippetCard.Actions>
-                <Button
-                  aria-label="Salvar como favorito"
-                  size="icon"
-                  variant="ghost"
-                >
-                  <HeartIcon size={18} />
-                </Button>
-
+                <FavoriteButton snippet={snippet} />
                 <OpenLinkButton url={snippet.link} />
               </SnippetCard.Actions>
             </SnippetCard.Content>
