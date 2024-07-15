@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 import { Logo } from '@/components/logo'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Search } from '@/components/search'
@@ -15,7 +15,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           </Link>
 
           <div className="flex items-center gap-4">
-            <Search />
+            <Suspense>
+              <Search />
+            </Suspense>
+
             <ModeToggle />
             <UserNav />
           </div>
