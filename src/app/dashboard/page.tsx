@@ -6,6 +6,8 @@ import { SnippetCard } from '@/components/snippet-card'
 import { Technology } from '@/components/technology'
 import { getAllSnippets } from '@/utils/get-all-snippets'
 
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardPage() {
   const snippets = await getAllSnippets()
 
