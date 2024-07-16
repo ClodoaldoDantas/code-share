@@ -11,7 +11,7 @@ export default async function ProfilePage() {
     <main className="max-w-5xl mx-auto px-4 my-5">
       {snippets.length === 0 && <EmptyList />}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid gap-4 md:grid-cols-3">
         {snippets.map((snippet) => (
           <SnippetCard.Root key={snippet.id}>
             <SnippetCard.Heading

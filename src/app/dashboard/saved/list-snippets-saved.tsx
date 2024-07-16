@@ -14,7 +14,7 @@ export function ListSnippetsSaved() {
     <>
       {favorites.length === 0 && <EmptyList />}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid gap-4 md:grid-cols-3">
         {favorites.map((snippet) => (
           <SnippetCard.Root key={snippet.id}>
             <SnippetCard.Heading

@@ -29,7 +29,7 @@ export default async function DashboardSearchPage({
         <EmptyList description="Digite outro termo e tente novamente." />
       )}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid gap-4 md:grid-cols-3">
         {snippets.map((snippet: any) => (
           <SnippetCard.Root key={snippet.id}>
             <SnippetCard.Heading
